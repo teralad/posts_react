@@ -1,0 +1,21 @@
+name: CI
+
+on: [push]
+
+jobs:
+  ci_runner:
+    name: deploy to staging
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+    - name: Run npm install
+      run: npm install
+    - name: Run lint
+      run: npm run lint
+    - name: Run build.
+      run: npm run build
