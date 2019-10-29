@@ -12,7 +12,5 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - uses: teralad/posts_react@v1
-        with:
-          repo-token: 600b193032e2dd0d18a597528771e6a520f1bb34
-          check-name: eslint # this is the check name from above 👆 where to post annotations
+      - name: Run lint
+        run: npm run lint
