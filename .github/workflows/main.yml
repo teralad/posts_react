@@ -1,6 +1,6 @@
 name: CI
 
-on: [push]
+on: [pull_request, push]
 
 jobs:
   ci_runner:
@@ -12,7 +12,7 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
-        node-version: '12'
+        node-version: 12
     - name: Run npm install
       run: npm install
     - name: Run lint
@@ -25,3 +25,4 @@ jobs:
         || (echo "##[error] found changed files after build. please 'npm run build && npm run format'" \
                  "and check in all changes" \
             && exit 1)
+  
