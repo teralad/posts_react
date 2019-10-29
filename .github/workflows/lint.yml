@@ -7,12 +7,11 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
-        with:
-          fetch-depth: 1
-      - uses: actions/setup-node@v1
+      - name: Setup Node
+        uses: actions/setup-node@v1
         with:
           node-version: 12
-      - uses: teralad/posts_react@v1
-        with:
-          repo-token: 600b193032e2dd0d18a597528771e6a520f1bb34
-          check-name: eslint # this is the check name from above 👆 where to post annotations
+      - name: Run npm install
+        run: npm install
+      - name: Run lint
+        run: npm run lint src/index.js
