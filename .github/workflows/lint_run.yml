@@ -15,4 +15,4 @@ jobs:
       - name: Run lint_run script
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        run: 'sh .github/lint_run.sh'
+        run: 'bash .github/lint_run.sh'
