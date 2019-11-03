@@ -1,9 +1,10 @@
 name: Lint
 
-on: pull_request
+on: [pull_request, push]
 
 jobs:
   eslint:
+    name: Run lint one file
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1

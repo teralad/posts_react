@@ -1,0 +1,13 @@
+name: Jira check
+
+on: pull_request
+
+jobs:
+  pr_checker:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: PR title check
+        run: 'bash .github/jira.sh'
