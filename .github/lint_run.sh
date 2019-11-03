@@ -1,7 +1,5 @@
 #!/bin/sh
 
-echo "Current path is $GITHUB_EVENT_PATH.."
-cat $GITHUB_EVENT_PATH
 PR_NUMBER=$(jq -r ".number" "$GITHUB_EVENT_PATH")
 
 echo "Collecting information about PR #$PR_NUMBER of $GITHUB_REPOSITORY..."

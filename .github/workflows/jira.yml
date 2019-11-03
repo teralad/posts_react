@@ -6,7 +6,7 @@ jobs:
   pr_checker:
     runs-on: ubuntu-18.04
     steps:
-      - name: PR jira check
+      - name: PR title check
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        uses: vijaykramesh/pr-lint-action@v1.0
+        run: 'bash .github/jira.sh'
