@@ -1,7 +1,9 @@
 #!/bin/sh
 
+echo "Current path is $GITHUB_EVENT_PATH.."
 PR_NUMBER=$(jq -r ".issue.number" "$GITHUB_EVENT_PATH")
 echo "Collecting information about PR #$PR_NUMBER of $GITHUB_REPOSITORY..."
+echo "Github token is $GITHUB_TOKEN..."
 
 if [[ -z "$GITHUB_TOKEN" ]]; then
 	echo "Set the GITHUB_TOKEN env variable."
