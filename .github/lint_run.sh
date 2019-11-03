@@ -37,9 +37,5 @@ echo "Base branch for PR #$PR_NUMBER is $BASE_BRANCH and current branch is $HEAD
 git fetch origin $BASE_BRANCH
 git fetch origin $HEAD_BRANCH
 
-# do the rebase
-
-git checkout -b $HEAD_BRANCH origin/$HEAD_BRANCH
-git rebase origin/$BASE_BRANCH
-
+# do the lint only for changed files.
 git diff -z --name-only --diff-filter=ACMRTUB `git merge-base HEAD $BASE_BRANCH` | xargs -0 npm run lint

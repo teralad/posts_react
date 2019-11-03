@@ -4,6 +4,7 @@ on: pull_request
 
 jobs:
   pr_checker:
+    runs-on: ubuntu-18.04
     steps:
       - name: PR jira check
         env:
