@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - uses: teralad/posts_react@v1
+      - name: Run lint_run script
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
