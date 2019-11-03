@@ -2,11 +2,7 @@
 
 echo "Current path is $GITHUB_EVENT_PATH.."
 cat $GITHUB_EVENT_PATH
-NUMBER=$(jq -r ".issue.number" "$GITHUB_EVENT_PATH")
-P_NUMBER=$(jq -r ".number" "$GITHUB_EVENT_PATH")
-if [ -z "$NUMBER" ]; then
-   set "$PR_NUMBER" P_NUMBER
-fi
+PR_NUMBER=$(jq -r ".number" "$GITHUB_EVENT_PATH")
 
 echo "Collecting information about PR #$PR_NUMBER of $GITHUB_REPOSITORY..."
 echo "Github token is $GITHUB_TOKEN..."
