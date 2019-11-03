@@ -27,6 +27,7 @@ class  App extends Component {
       return <div>Somthing went wrong. Please try again <button onClick={window.reload()}></button></div> 
     }
 
+
     return (
       <div className="app">
         <header>Posts</header>

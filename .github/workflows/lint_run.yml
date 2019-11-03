@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+      - name: Run npm install
+        run: npm install
       - name: Run lint_run script
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
