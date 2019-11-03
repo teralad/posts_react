@@ -7,8 +7,8 @@ echo "Collecting information about PR #$TITLE of $GITHUB_REPOSITORY..."
 REGEX_PATTERN='^[Dd][Pp].*'
 
 if [[ $TITLE =~ $REGEX_PATTERN ]]; then 
-    echo "true"
+    echo "true."
 else
-    echo "false"
+    echo "false."
     exit 1
 fi
