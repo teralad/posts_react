@@ -4,6 +4,7 @@ on: pull_request
 
 jobs:
   eslint:
+    name: Run lint on changed files
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
