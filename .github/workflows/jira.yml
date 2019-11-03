@@ -7,6 +7,4 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: PR title check
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: 'bash .github/jira.sh'
