@@ -31,7 +31,7 @@ HEAD_BRANCH=$(echo "$pr_resp" | jq -r .head.ref)
 
 echo "Base branch for PR #$PR_NUMBER is $BASE_BRANCH and current branch is $HEAD_BRANCH"
 
-git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git
+git remote set-url origin https://teralad:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git
 git config --global user.email "actions@github.com"
 git config --global user.name "GitHub Action"
 
@@ -40,4 +40,4 @@ git fetch origin $BASE_BRANCH
 git fetch origin $HEAD_BRANCH
 
 # do the lint only for changed files.
-git diff -z --name-only --diff-filter=ACMRTUB `git merge-base HEAD $BASE_BRANCH`..`git merge-base HEAD $HEAD_BRANCH` -- '*.js' | xargs -0 npm run file_lint
+git diff -z --name-only --diff-filter=ACMRTUB `git merge-base HEAD $BASE_BRANCH`..`git merge-base HEAD $HEAD_BRANCH` -- '*.js' | xargs -0 npm run lint
