@@ -44,7 +44,7 @@ git fetch origin $HEAD_BRANCH
 
 git diff
 echo "Base branch stuff is "
-git merge-base HEAD $BASE_BRANCH
+git merge-base HEAD origin/$BASE_BRANCH
 echo "And Head branch stuff is "
 git merge-base HEAD $HEAD_BRANCH
 
