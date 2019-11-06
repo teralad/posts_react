@@ -38,8 +38,9 @@ git config --global user.name "GitHub Action"
 set -o xtrace
 
 # make sure branches are up-to-date
+echo "Updating branches"
 git fetch origin $BASE_BRANCH
 git fetch origin $HEAD_BRANCH
 
 # do the lint only for changed files.
-git diff -z --name-only --diff-filter=ACMRTUB `git merge-base HEAD $BASE_BRANCH`..`git merge-base HEAD $HEAD_BRANCH` -- '*.js' | xargs -0 npm run lint
+git diff -z --name-only --diff-filter=ACMRTUB `git merge-base HEAD origin/$BASE_BRANCH`..`git merge-base HEAD origin/$HEAD_BRANCH` -- '*.js' | xargs -0 npm run lint
