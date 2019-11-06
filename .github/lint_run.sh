@@ -42,5 +42,11 @@ git config --global user.name "GitHub Action"
 git fetch origin $BASE_BRANCH
 git fetch origin $HEAD_BRANCH
 
+git diff
+echo "Base branch stuff is "
+git merge-base HEAD $BASE_BRANCH
+echo "And Head branch stuff is "
+git merge-base HEAD $HEAD_BRANCH
+
 # do the lint only for changed files.
-git diff -z --name-only --diff-filter=ACMRTUB `git merge-base HEAD $BASE_BRANCH` -- '*.js' | xargs -0 npm run lint
+git diff -z --name-only --diff-filter=ACMRTUB `git merge-base HEAD $BASE_BRANCH`..`git merge-base HEAD $HEAD_BRANCH` -- '*.js' | xargs -0 npm run file_lint
