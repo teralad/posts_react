@@ -35,6 +35,8 @@ git remote set-url origin https://teralad:$GITHUB_TOKEN@github.com/$GITHUB_REPOS
 git config --global user.email "actions@github.com"
 git config --global user.name "GitHub Action"
 
+set -o xtrace
+
 # make sure branches are up-to-date
 git fetch origin $BASE_BRANCH
 git fetch origin $HEAD_BRANCH
