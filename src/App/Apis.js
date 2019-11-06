@@ -10,12 +10,15 @@ export const API =  {
         })
     },
     updatePost: async (postId, updatePost) => {
-        return await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, 
+        return await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`,
         {
             method: 'PATCH',
             body: JSON.stringify(updatePost),
             headers: {'Content-type': 'application/json'}
 
         })
-    }   
+    },
+    create_asdf: async (a) => {
+        return "asdf"
+    }
 }
