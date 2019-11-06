@@ -42,5 +42,9 @@ echo "Updating branches"
 git fetch origin $BASE_BRANCH
 git fetch origin $HEAD_BRANCH
 
+BASE_SHA=`git merge-base HEAD origin/$BASE_BRANCH`
+HEAD_SHA=`git merge-base HEAD origin/$HEAD_BRANCH`
+
+echo "ASDF BASE $BASE_SHA and head $HEAD_SHA"
 # do the lint only for changed files.
-git diff -z --name-only --diff-filter=ACMRTUB `git merge-base HEAD origin/$BASE_BRANCH`..`git merge-base HEAD origin/$HEAD_BRANCH` -- '*.js' | xargs -0 npm run lint
+git diff -z --name-only --diff-filter=ACMRTUB $BASE_SHA..$HEAD_SHA -- '*.js' | xargs -0 npm run lint
