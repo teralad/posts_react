@@ -2,6 +2,8 @@
 
 PR_NUMBER=$(jq -r ".number" "$GITHUB_EVENT_PATH")
 
+cat $GITHUB_EVENT_PATH
+
 echo "Collecting information about PR #$PR_NUMBER of $GITHUB_REPOSITORY..."
 echo "Github token is $GITHUB_TOKEN..."
 
@@ -34,8 +36,6 @@ echo "Base branch for PR #$PR_NUMBER is $BASE_BRANCH and current branch is $HEAD
 git remote set-url origin https://teralad:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git
 git config --global user.email "actions@github.com"
 git config --global user.name "GitHub Action"
-
-set -o xtrace
 
 # make sure branches are up-to-date
 echo "Updating branches"
