@@ -31,6 +31,10 @@ HEAD_BRANCH=$(echo "$pr_resp" | jq -r .head.ref)
 
 echo "Base branch for PR #$PR_NUMBER is $BASE_BRANCH and current branch is $HEAD_BRANCH"
 
+git remote -v
+
+echo "git remote is above"
+
 git config --global user.email "actions@github.com"
 git config --global user.name "GitHub Action"
 
